@@ -1,4 +1,4 @@
-package com.blu4ck.demo.dataAccess;
+package com.blu4ck.demo.entities.concretes;
 
 
 import jakarta.persistence.*;
