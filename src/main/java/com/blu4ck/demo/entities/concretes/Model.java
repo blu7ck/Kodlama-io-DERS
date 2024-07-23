@@ -1,20 +1,20 @@
 package com.blu4ck.demo.entities.concretes;
 
-
 import jakarta.persistence.*;
-import lombok.*;
-import org.apache.catalina.LifecycleState;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
-
-@Table(name = "brands")
+@Table(name = "models")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Brand {
+public class Model {
 
     @Column(name = "name")
     private String name;
@@ -23,7 +23,10 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
-    @OneToMany(mappedBy = "brand")
-    private List<Model> models;
+    @OneToMany(mappedBy = "model")
+    private List<Car> cars;
 }
